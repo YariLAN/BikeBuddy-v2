@@ -52,9 +52,14 @@ class HistoryRouteDetailsActivity : AppCompatActivity() {
         var start: LocalDateTime = LocalDateTime.parse(startDate)
         var end: LocalDateTime = LocalDateTime.parse(endDate)
 
-        val hours = Hours.hoursBetween(start, end).hours
-        val minutes = Minutes.minutesBetween(start, end).minutes
-        val seconds = Seconds.secondsBetween(start, end).seconds
+        var seconds = Seconds.secondsBetween(start, end).seconds
+        seconds = seconds % (24 * 3600)
+
+        val hours = seconds / 3600
+        seconds %= 3600
+
+        val minutes= seconds / 60
+        seconds %= 60
 
         return arrayOf(hours, minutes, seconds)
     }
