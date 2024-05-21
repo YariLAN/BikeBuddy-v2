@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#FA252330"
+        android:includeFontPadding="false"
+        tools:context=".ui.HistoryRouteDetailsActivity">
+
+    <TextView
+            android:hint="Времени затрачено"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="92dp"
+            android:id="@+id/textView6" android:textColor="#F8F8F8"
+            android:textColorLink="#FFFFFF" android:textColorHint="#FFFFFF" app:layout_constraintEnd_toEndOf="parent"
+            android:includeFontPadding="false"
+            app:layout_constraintStart_toStartOf="parent"/>
+    <TextView
+            android:hint="Точка старта"
+            android:textColor="@color/white"
+            android:layout_width="89dp"
+            android:layout_height="20dp"
+            android:id="@+id/textView7" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.563" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.282" android:textColorHint="#FFFFFF"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:textColor="@color/white"
+            android:layout_height="wrap_content"
+            android:includeFontPadding="false"
+            android:id="@+id/speed"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintVertical_bias="0.483"
+            android:textColorHint="#FFFFFF" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"/>
+    <TextView
+            android:hint="Средняя скорость"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="320dp"
+            android:id="@+id/textView10" android:textColor="#F8F8F8"
+            android:textColorLink="#FFFFFF" android:textColorHint="#FFFFFF" app:layout_constraintEnd_toEndOf="parent"
+            android:includeFontPadding="false"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintHorizontal_bias="0.501"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:id="@+id/latStart" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintHorizontal_bias="0.6"
+            app:layout_constraintVertical_bias="0.549" android:visibility="visible" android:textColorHint="#FFFFFF"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#FFFFFF"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintHorizontal_bias="0.6" app:layout_constraintVertical_bias="0.601"
+            android:id="@+id/longStart" android:textColorHint="#FFFFFF"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:textColor="@color/white"
+            android:layout_height="wrap_content"
+            android:includeFontPadding="false"
+            android:id="@+id/total_km2"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintVertical_bias="0.316"
+            android:textColorHint="#FFFFFF" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintHorizontal_bias="0.501"/>
+    <TextView
+            android:hint="Пройденное расстояние"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="196dp"
+            android:id="@+id/textView8" android:textColor="#F8F8F8"
+            android:textColorLink="#FFFFFF" android:textColorHint="#FFFFFF" app:layout_constraintEnd_toEndOf="parent"
+            android:includeFontPadding="false"
+            app:layout_constraintStart_toStartOf="parent"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:textColor="@color/white"
+            android:layout_height="wrap_content"
+            android:id="@+id/total_km"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintVertical_bias="0.168"
+            android:textColorHint="#FFFFFF" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintHorizontal_bias="0.501"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

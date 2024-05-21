@@ -11,9 +11,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Adapter
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.view.iterator
 import com.bumptech.glide.Glide
 import com.example.bike.R
 import com.example.bike.databinding.FragmentProfileBinding
@@ -29,6 +31,7 @@ import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.database
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.UploadTask
+import kotlinx.coroutines.flow.collect
 import org.jetbrains.annotations.NotNull
 import org.joda.time.LocalDateTime
 import org.joda.time.Period
@@ -43,6 +46,8 @@ class ProfileFragment : Fragment() {
 
     // путь к файлу картинки
     private lateinit var filePath: Uri
+
+    private var arrayList : ArrayList<Route> = arrayListOf()
 
     // создания фрагмента
     override fun onCreateView(
@@ -66,7 +71,17 @@ class ProfileFragment : Fragment() {
         }
 
         // установить историю активностей прошедших поездок
-        setListView()
+        this.setListView()
+
+        profileFragmentBinding.listHistoryItems.setOnItemClickListener { parent, view, position, id ->
+            val intent = Intent(requireContext(), HistoryRouteDetailsActivity::class.java);
+
+            val routeId = arrayList[position].id;
+
+            intent.putExtra("routeId", arrayList[position].id)
+
+            startActivity(intent);
+        };
 
         return profileFragmentBinding.root
     }
@@ -81,52 +96,14 @@ class ProfileFragment : Fragment() {
 
     // Задать список из пройденных маршрутов
     private fun setListView() {
-        val arrayList : ArrayList<Route> = arrayListOf()
+        var adapter: ArrayAdapter<Route>? = null;
 
-        // установка асинхронности потока
-        Firebase.database.reference.child("routes").orderByChild("userId").equalTo(
-            FirebaseAuth.getInstance().currentUser!!.uid).keepSynced(true)
-
-        // выгрузка данных о маршрутах текущего пользователя
-        Firebase.database.reference.child("routes").orderByChild("userId").equalTo(
-            FirebaseAuth.getInstance().currentUser!!.uid)
-            .addListenerForSingleValueEvent(object : ValueEventListener {
-                override fun onDataChange(snapshot: DataSnapshot) {
-                    val result = snapshot.children!!
-
-                    // перебор данных
-                    // перевод из HashMap в класс Route
-                    result.forEach { it ->
-                        val res = it.children!!
-                        val arrayOfData = arrayListOf<String>()
-
-                        res.forEach { date ->
-                            arrayOfData.add(date.value.toString())
-                        }
-
-                        val route = Route(
-                            arrayOfData[0],
-                            arrayOfData[1],
-                            arrayOfData[2],
-                            arrayOfData[3],
-                            arrayOfData[4],
-                            arrayOfData[5],
-                            arrayOfData[6],
-                            arrayOfData[7],
-                            arrayOfData[8],
-                        )
-
-                        arrayList.add(route)
-                    }
-
-                    // инициализация адаптера
-                    val adapter = RouteAdapter(requireContext(), arrayList)
-                    profileFragmentBinding.listHistoryItems.adapter = adapter
-                }
-
-                override fun onCancelled(error: DatabaseError) {
-                }
-            })
+        RouteRepository.getItemsAsync(
+                FirebaseAuth.getInstance().currentUser!!.uid,
+                adapter,
+                requireContext(),
+                profileFragmentBinding)
+            .also { arrayList = it!! }
     }
 
     companion object {
@@ -228,7 +205,7 @@ class ProfileFragment : Fragment() {
         }
     }
 
-    // метод удаления фрагмента, вслучае выхода из него
+    // метод удаления фрагмента, в случае выхода из него
     override fun onDestroy() {
         super.onDestroy()
     }

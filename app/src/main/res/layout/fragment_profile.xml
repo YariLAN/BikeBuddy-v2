@@ -30,10 +30,9 @@
             app:layout_constraintStart_toEndOf="parent"
             app:layout_constraintBaseline_toTopOf="parent"
             android:src="@drawable/iconamoon_profile"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toTopOf="parent" app:layout_constraintVertical_bias="0.197"
+            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/textView5" app:layout_constraintHorizontal_bias="1.0"
-            android:layout_marginEnd="24dp"/>
+            android:layout_marginEnd="24dp" app:layout_constraintBottom_toTopOf="@+id/list_history_items"/>
 
 
     <TextView
