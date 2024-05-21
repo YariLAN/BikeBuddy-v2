@@ -18,7 +18,7 @@
             android:id="@+id/textView6" android:textColor="#F8F8F8"
             android:textColorLink="#FFFFFF" android:textColorHint="#FFFFFF" app:layout_constraintEnd_toEndOf="parent"
             android:includeFontPadding="false"
-            app:layout_constraintStart_toStartOf="parent"/>
+            app:layout_constraintStart_toStartOf="parent" android:textSize="16sp"/>
     <TextView
             android:hint="Точка старта"
             android:textColor="@color/white"
@@ -30,7 +30,7 @@
             app:layout_constraintHorizontal_bias="0.282" android:textColorHint="#FFFFFF"/>
     <TextView
             android:layout_width="wrap_content"
-            android:textColor="@color/white"
+            android:textColor="#9DCAF1"
             android:layout_height="wrap_content"
             android:includeFontPadding="false"
             android:id="@+id/speed"
@@ -48,11 +48,12 @@
             android:id="@+id/textView10" android:textColor="#F8F8F8"
             android:textColorLink="#FFFFFF" android:textColorHint="#FFFFFF" app:layout_constraintEnd_toEndOf="parent"
             android:includeFontPadding="false"
-            app:layout_constraintStart_toStartOf="parent" app:layout_constraintHorizontal_bias="0.501"/>
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintHorizontal_bias="0.501"
+            android:textSize="16sp"/>
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/white"
+            android:textColor="#9DCAF1"
             android:id="@+id/latStart" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintHorizontal_bias="0.6"
@@ -60,14 +61,14 @@
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="#FFFFFF"
+            android:textColor="#9DCAF1"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintHorizontal_bias="0.6" app:layout_constraintVertical_bias="0.601"
             android:id="@+id/longStart" android:textColorHint="#FFFFFF"/>
     <TextView
             android:layout_width="wrap_content"
-            android:textColor="@color/white"
+            android:textColor="#9DCAF1"
             android:layout_height="wrap_content"
             android:includeFontPadding="false"
             android:id="@+id/total_km2"
@@ -85,10 +86,10 @@
             android:id="@+id/textView8" android:textColor="#F8F8F8"
             android:textColorLink="#FFFFFF" android:textColorHint="#FFFFFF" app:layout_constraintEnd_toEndOf="parent"
             android:includeFontPadding="false"
-            app:layout_constraintStart_toStartOf="parent"/>
+            app:layout_constraintStart_toStartOf="parent" android:textSize="16sp"/>
     <TextView
             android:layout_width="wrap_content"
-            android:textColor="@color/white"
+            android:textColor="#9DCAF1"
             android:layout_height="wrap_content"
             android:id="@+id/total_km"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent"
