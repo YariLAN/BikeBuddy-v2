@@ -124,8 +124,8 @@ class HistoryRouteDetailsActivity : AppCompatActivity() {
                         val seconds = getSecondsFromDate(route!!.startTime, route!!.endTime)
 
                         var speed: Double = 0.0
-                        if (route!!.distance.toInt() != 0) {
-                            speed = (seconds / route!!.distance.toDouble())
+                        if (seconds != 0) {
+                            speed = (route!!.distance.toDouble() / seconds)
                         }
 
                         historyRouteDetailsBinding.speed.text = String.format("%.3f", speed) + " м/c"
